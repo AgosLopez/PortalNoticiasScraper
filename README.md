@@ -1,10 +1,38 @@
-# ClarinScraper
+# PortalNoticiasScraper 🗞️
 
-Scraper de noticias del diario **Clarín** para el proyecto de investigación titulado "Plataforma Inteligente para la Detección de Tendencias Emergentes y Desinformación Digital". Produce los mismos CSVs que el scraper de Infobae, permitiendo unificar ambos datasets en la misma base de datos Neo4j.
+Este repositorio contiene un conjunto de scrapers automatizados diseñados para extraer, procesar y almacenar artículos de los principales portales de noticias argentinos de forma estructurada para el proyecto de investigación acerca de una plataforma inteligente para la detección de tendencias emergentes y desinformación.
 
-## Estructura del proyecto
+Actualmente, el proyecto cuenta con dos módulos principales:
+*   **clarin_scraper**: Módulo enfocado en la extracción de contenido del diario Clarín.
+*   **lanacion_scraper**: Módulo modular y testeado enfocado en la extracción de contenido del diario La Nación.
 
-```
+---
+
+## 🚀 Estructura del Módulo `lanacion_scraper`
+
+El scraper de La Nación está estructurado siguiendo buenas prácticas de desarrollo modular en Python:
+
+lanacion_scraper/
+└── lanacion_scraper/
+    ├── main.py                # Punto de entrada principal para ejecutar el scraper
+    ├── requirements.txt       # Dependencias específicas del módulo
+    ├── modelos/
+    │   └── esquema.py         # Definición de estructuras de datos (artículos, autores, etc.)
+    ├── scraper/
+    │   ├── driver.py          # Configuración del navegador/driver para el crawling
+    │   ├── crawleador_seccion.py  # Lógica para recorrer secciones del portal
+    │   └── parseador_articulo.py  # Lógica para extraer la información interna de cada nota
+    ├── salida/
+    │   └── escritor_csv.py    # Módulo encargado de exportar los datos recolectados a CSV
+    └── tests/                 # Suite de pruebas unitarias automatizadas
+        ├── test_crawleador_seccion.py
+        ├── test_escritor_csv.py
+        ├── test_esquema.py
+        └── test_parseador_articulo.py
+        
+
+## 🚀 Estructura del Módulo `clarin_scraper`
+
 clarin_scraper/
 ├── main.py                        # Punto de entrada CLI
 ├── requirements.txt
@@ -21,19 +49,15 @@ clarin_scraper/
     ├── test_crawleador_seccion.py
     ├── test_parseador_articulo.py
     └── test_escritor_csv.py
-```
+
 
 ## Instalación
-
-```bash
 pip install -r requirements.txt
-```
 
 ## Uso
 
 Desde el directorio `clarin_scraper/`:
 
-```bash
 # Artículo individual
 python main.py --url https://www.clarin.com/politica/titulo_0_id.html
 
@@ -42,7 +66,6 @@ python main.py --seccion /politica/
 
 # Opciones avanzadas
 python main.py --seccion /economia/ --max 100 --salida mis_datos --delay 3.0
-```
 
 ## CSVs generados
 
@@ -64,10 +87,8 @@ Los CSVs tienen **exactamente los mismos campos** que los del scraper de Infobae
 
 ## Tests
 
-```bash
 cd clarin_scraper
 pytest tests/ -v
-```
 
 ## Secciones disponibles en Clarín
 
