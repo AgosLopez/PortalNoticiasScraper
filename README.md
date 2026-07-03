@@ -7,30 +7,7 @@ Actualmente, el proyecto cuenta con dos módulos principales:
 *   **lanacion_scraper**: Módulo modular y testeado enfocado en la extracción de contenido del diario La Nación.
 
 ---
-
-## 🚀 Estructura del Módulo `lanacion_scraper`
-
-El scraper de La Nación está estructurado siguiendo buenas prácticas de desarrollo modular en Python:
-
-lanacion_scraper/
-└── lanacion_scraper/
-    ├── main.py                # Punto de entrada principal para ejecutar el scraper
-    ├── requirements.txt       # Dependencias específicas del módulo
-    ├── modelos/
-    │   └── esquema.py         # Definición de estructuras de datos (artículos, autores, etc.)
-    ├── scraper/
-    │   ├── driver.py          # Configuración del navegador/driver para el crawling
-    │   ├── crawleador_seccion.py  # Lógica para recorrer secciones del portal
-    │   └── parseador_articulo.py  # Lógica para extraer la información interna de cada nota
-    ├── salida/
-    │   └── escritor_csv.py    # Módulo encargado de exportar los datos recolectados a CSV
-    └── tests/                 # Suite de pruebas unitarias automatizadas
-        ├── test_crawleador_seccion.py
-        ├── test_escritor_csv.py
-        ├── test_esquema.py
-        └── test_parseador_articulo.py
         
-
 ## 🚀 Estructura del Módulo `clarin_scraper`
 
 clarin_scraper/
@@ -49,6 +26,26 @@ clarin_scraper/
     ├── test_crawleador_seccion.py
     ├── test_parseador_articulo.py
     └── test_escritor_csv.py
+
+## 🚀 Estructura del Módulo `lanacion_scraper`
+
+lanacion_scraper/
+└── lanacion_scraper/              # Código fuente del módulo
+    ├── main.py                    # Punto de entrada principal para ejecutar el scraper
+    ├── requirements.txt           # Dependencias específicas de La Nación
+    ├── modelos/                   # Estructuras de datos
+    │   └── esquema.py             # Definición de esquemas de datos del portal
+    ├── scraper/                   # Componentes del motor de scraping
+    │   ├── driver.py              # Configuración y manejo del navegador
+    │   ├── crawleador_seccion.py  # Lógica para recorrer secciones de La Nación
+    │   └── parseador_articulo.py  # Extracción de contenido interno de notas
+    ├── salida/                    # Gestión de archivos resultantes
+    │   └── escritor_csv.py        # Módulo de exportación de datos a formato CSV
+    └── tests/                     # Suite de pruebas automatizadas
+        ├── test_crawleador_seccion.py
+        ├── test_escritor_csv.py  
+        ├── test_esquema.py      
+        └── test_parseador_articulo.py
 
 
 ## Instalación
