@@ -8,8 +8,10 @@ Actualmente, el proyecto cuenta con dos módulos principales:
 
 ---
         
-## 🚀 Estructura del Módulo `clarin_scraper`
+## 🚀 Estructura del Proyecto
 
+### Módulo `clarin_scraper`
+```text
 clarin_scraper/
 ├── main.py                        # Punto de entrada CLI
 ├── requirements.txt
@@ -26,9 +28,10 @@ clarin_scraper/
     ├── test_crawleador_seccion.py
     ├── test_parseador_articulo.py
     └── test_escritor_csv.py
+```
 
 ## 🚀 Estructura del Módulo `lanacion_scraper`
-
+```text
 lanacion_scraper/
 └── lanacion_scraper/              # Código fuente del módulo
     ├── main.py                    # Punto de entrada principal para ejecutar el scraper
@@ -46,7 +49,7 @@ lanacion_scraper/
         ├── test_escritor_csv.py  
         ├── test_esquema.py      
         └── test_parseador_articulo.py
-
+```
 
 ## Instalación
 pip install -r requirements.txt
